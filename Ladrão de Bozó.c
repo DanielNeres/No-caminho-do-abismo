@@ -30,3 +30,30 @@ int main(){
 	for(i = 0; i < checar; i++){
 	   	printf("\n %d\n", diferente[i]);
 	}
+	
+
+	for(i = 0; i < N; i++){
+		for(j = 0; j <= checar; j++){
+			if(diferente[j] == permutacao[i]){
+				break;
+			}
+		}
+		for(j = 0; j <= checar; j++){
+			if(diferente[j] < permutacao[i]){
+				novovetorcomracoa[i] = diferente[j];
+				for (m = j; m <= checar; m++){
+					diferente[m] = diferente[m + 1];
+					checar -= 1;
+				}
+				break;
+			} else if(diferente[0] > permutacao[i]){
+				novovetorcomracoa[i] = permutacao[i];
+			}
+		}
+	}
+	for(i = 0; i < N; i++){
+		printf("%d\n", novovetorcomracoa[i]);
+	}
+
+	return 0;
+}
