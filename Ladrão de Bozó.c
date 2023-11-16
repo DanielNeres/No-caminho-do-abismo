@@ -7,27 +7,28 @@ int main(){
 	scanf("%d", &N);
 	int vetorcomparacoa[N];
 	int permutacao[N];
+	int novovetorcomracoa[N];
+	int diferente[N];
+	int checar = 0;
 	for(i = 1; i <= N; i++){
 		vetorcomparacoa[i-1] = i;
 	}
 	for(i = 0; i < N; i++){
 		scanf("%d", &permutacao[i]);
 	}
-	printf("\n");
 	for(i = 0; i < N; i++){
-		printf("%d", permutacao[i]);
+		if(vetorcomparacoa[i] != permutacao[i]){	
+			if(permutacao[i] == diferente[0] + 1 || checar == 0){
+				diferente[i] = permutacao[i];
+				checar = 1;
+				printf("%d\n", diferente[i]);
+			}
+		}
 	}
-	printf("\n");
+	
 	for(i = 0; i < N; i++){
-		printf("%d", vetorcomparacoa[i]);
+		printf("%d\n", diferente[i]);
 	}
 	
 	return 0;
 }
-
-
-
-
-
-
-
