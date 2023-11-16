@@ -17,17 +17,13 @@ int main(){
 		scanf("%d", &permutacao[i]);
 	}
 	for(i = 0; i < N; i++){
-		if(vetorcomparacoa[i] != permutacao[i]){	
-			if(permutacao[i] == diferente[0] + 1 || checar == 0){
-				diferente[i] = permutacao[i];
-				checar = 1;
+		if(vetorcomparacoa[i] != permutacao[i]){
+			if(permutacao[i] == diferente[checar - 1] + 1 || checar == 0){
+				diferente[checar] = permutacao[i];
 				printf("%d\n", diferente[i]);
+				checar += 1;
 			}
 		}
-	}
-	
-	for(i = 0; i < N; i++){
-		printf("%d\n", diferente[i]);
 	}
 	
 	return 0;
