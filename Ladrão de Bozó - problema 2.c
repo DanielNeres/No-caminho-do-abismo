@@ -3,7 +3,7 @@
 int main(){
 	
 
-	int N, i, j, m;
+	int N, i, j, m, z = 0;
 	scanf("%d", &N);
 	int vetorcomparacoa[N];
 	int permutacao[N];
@@ -18,44 +18,46 @@ int main(){
 	}
 	for(i = 0; i < N; i++){
 		if(vetorcomparacoa[i] != permutacao[i] || checar > 0){
-			printf("estou aqui\n\n");
 			if(permutacao[i] == ((diferente[checar - 1]) + 1) || checar == 0){
-				printf("estou aqui dentro\n\n");
 				diferente[checar] = permutacao[i];
 				checar += 1;
 			}
 		}
 	}
 	for(i = 0; i < checar; i++){
-	   	printf("\n\n %d\n", diferente[i]);
+	   	printf("\n %d\n", diferente[i]);
 	}
+	printf("\n\n\n\n");
 	
 
 	for(i = 0; i < N; i++){
 		for(j = 0; j <= checar; j++){
 			if(diferente[j] == permutacao[i]){
+				z++;
 				break;
 			}
 		}
-		for(j = 0; j <= checar; j++){
+		for(j = 0; j < checar; j++){
 			if(permutacao[i] > diferente[j]){
-				novovetorcomracoa[i] = diferente[j];
+				printf("\n\n%d\n\n", (i - z) + j);
+				novovetorcomracoa[(i - z) + j] = diferente[j];
+				printf("\n\nestou aqui = %d e %d e %d \n\n", novovetorcomracoa[(i - z) + j], diferente[j], permutacao[i]);
 				for (m = j; m < checar; m++){
 					diferente[m] = diferente[m + 1];
 					checar -= 1;
 				}
-				break;
 			} else if(diferente[0] > permutacao[i]){
-				novovetorcomracoa[i] = permutacao[i];
-				break;
+				novovetorcomracoa[i - z] = permutacao[i];
 			}
 		}
 	}
+	/*
 	if(checar > 0){
 		for(i = 0; i < checar; i++){
-			novovetorcomracoa[((N - checar) - 1) + i] = diferente[i];
+			novovetorcomracoa[((N - checar)) + i] = diferente[i];
 		}
 	}
+	*/
 	for(i = 0; i < N; i++){
 		printf("\n%d\n", novovetorcomracoa[i]);
 	}
