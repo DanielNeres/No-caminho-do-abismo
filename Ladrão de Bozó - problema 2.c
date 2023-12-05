@@ -29,7 +29,7 @@ int main(){
 	}
 	printf("\n\n\n\n");
 	
-
+	printf("git hub");
 	for(i = 0; i < N; i++){
 		for(j = 0; j <= checar; j++){
 			if(diferente[j] == permutacao[i]){
